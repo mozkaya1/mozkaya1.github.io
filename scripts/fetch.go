@@ -1,0 +1,1 @@
+/home/musti/lgdoc/m-go/go-projects/bitcoin/fetch.go

@@ -1,0 +1,8 @@
+BTC : {{.Site.Data.bitcoin.Bitcoin}}
+TEST : {{ index .Site.Data.bitcoin "BNB"}}
+{{ range $key, $value := .Site.Data.bitcoin}}
+<ul>
+  {{ $key}}:{{ $value}}
+</ul>
+
+{{ end }}

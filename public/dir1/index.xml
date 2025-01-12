@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dir1s on Musti Home</title>
+    <link>//localhost:1313/dir1/</link>
+    <description>Recent content in Dir1s on Musti Home</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 09 Jan 2025 23:12:11 +0100</lastBuildDate><atom:link href="//localhost:1313/dir1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Test</title>
+      <link>//localhost:1313/dir1/test/</link>
+      <pubDate>Thu, 09 Jan 2025 23:12:11 +0100</pubDate>
+      
+      <guid>//localhost:1313/dir1/test/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+  </channel>
+</rss>

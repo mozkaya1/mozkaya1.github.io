@@ -1,4 +1,4 @@
-baseURL = "localhost"
+baseURL = "ozkaya84.github.io"
 title = "M.Ozkaya"
 theme = "hugo-coder"
 languageCode = "en"

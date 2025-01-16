@@ -6,8 +6,6 @@ aliases = ["musti", "about", "contact"]
 author = "musti"
 +++
 
-## Summary
-
 ______________________________________________________________________
 
 Highly experienced System Administrator with 15+ years of expertise in designing, deploying, and managing complex server infrastructures from bare metal to top-level applications. Skilled in Linux, Open Source Intelligence, and Video Streaming Services, with a strong proficiency in automation tools like Ansible, Puppet, and Terraform.

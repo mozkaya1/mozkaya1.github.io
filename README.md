@@ -1,2 +1,2 @@
-# ozkaya84.github.io
+# mozkaya1.github.io
 CV

@@ -1,9 +1,4 @@
-<div style="display: flex;">
-
-<!-- Left Column -->
-<div style="flex: 1; padding-right: 20px;">
-
-# John Doe
+{{< columns left="# John Doe
 
 ![Profile Picture](https://via.placeholder.com/150)  
 *(Replace the URL with the path to your actual picture)*
@@ -82,7 +77,8 @@
 - Interconnecting Cisco Networking Devices Part 1 (ICND1), Turk Telekom Academy, 24.10.2011 - 28.10.2011
 - Interconnecting Cisco Networking Devices Part 2 (ICND2), Turk Telekom Academy, 05.12.2011 - 09.12.2011
 - MTS 4K/6K & Fundamental IPTV Network, Turk Telekom
-
+" 
+right="
 
 ## Summary
 
@@ -139,7 +135,4 @@ Highly experienced System Administrator with 15+ years of expertise in designing
 - **Database Management**: Commissioning and managing Oracle DB for middleware systems.
 - **Automation and Configuration Management**: Commissioning and scaling new Linux nodes.
 - **Load Balancing**: Implementing open-source load balancing solutions using Nginx and Squid.
-
-</div>
-
-</div>
+" >}}

@@ -1,3 +1,10 @@
+---
+title: "Content Placeholder"
+_build:
+  render: never
+  list: never
+  publishResources: false
+---
 {{< columns left="# John Doe
 
 ![Profile Picture](https://via.placeholder.com/150)  
@@ -136,3 +143,4 @@ Highly experienced System Administrator with 15+ years of expertise in designing
 - **Automation and Configuration Management**: Commissioning and scaling new Linux nodes.
 - **Load Balancing**: Implementing open-source load balancing solutions using Nginx and Squid.
 " >}}
+

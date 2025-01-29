@@ -1,0 +1,8 @@
+<div style="display: flex; gap: 20px;">
+    <div style="flex: 1;">
+        {{ .Get "left" | markdownify }}
+    </div>
+    <div style="flex: 2;">
+        {{ .Get "right" | markdownify }}
+    </div>
+</div>

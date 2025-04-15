@@ -93,20 +93,6 @@
       <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>temas</title>
-      <link>//localhost:1313/categoria/temas/</link>
-      <pubDate>Wed, 04 Jan 2023 23:21:18 +0100</pubDate>
-      <guid>//localhost:1313/categoria/temas/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>sintaxe</title>
-      <link>//localhost:1313/categoria/sintaxe/</link>
-      <pubDate>Wed, 04 Jan 2023 23:21:06 +0100</pubDate>
-      <guid>//localhost:1313/categoria/sintaxe/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>About</title>
       <link>//localhost:1313/about/</link>
       <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>

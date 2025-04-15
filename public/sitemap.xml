@@ -2,7 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>//localhost:1313/categories/</loc>
+    <lastmod>2025-04-15T23:53:49+02:00</lastmod>
+  </url><url>
     <loc>//localhost:1313/categories/code/</loc>
+    <lastmod>2025-04-15T23:53:49+02:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/crypto/</loc>
     <lastmod>2025-04-15T23:53:49+02:00</lastmod>
   </url><url>
     <loc>//localhost:1313/tags/go/</loc>
@@ -29,22 +35,19 @@
     <loc>//localhost:1313/tags/</loc>
     <lastmod>2025-04-15T23:53:49+02:00</lastmod>
   </url><url>
+    <loc>//localhost:1313/tags/weather/</loc>
+    <lastmod>2025-04-15T23:53:49+02:00</lastmod>
+  </url><url>
     <loc>//localhost:1313/tags/websocket/</loc>
     <lastmod>2025-04-15T23:53:49+02:00</lastmod>
   </url><url>
     <loc>//localhost:1313/tags/api/</loc>
     <lastmod>2025-04-15T23:36:33+02:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/crypto/</loc>
-    <lastmod>2025-04-15T23:36:33+02:00</lastmod>
-  </url><url>
     <loc>//localhost:1313/tags/currency/</loc>
     <lastmod>2025-04-15T23:36:33+02:00</lastmod>
   </url><url>
     <loc>//localhost:1313/posts/go-api/</loc>
-    <lastmod>2025-04-15T23:36:33+02:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/tags/weather/</loc>
     <lastmod>2025-04-15T23:36:33+02:00</lastmod>
   </url><url>
     <loc>//localhost:1313/tags/templ/</loc>
@@ -127,15 +130,6 @@
   </url><url>
     <loc>//localhost:1313/authors/hugo-authors/</loc>
     <lastmod>2023-01-05T01:15:29+01:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/categories/</loc>
-    <lastmod>2023-01-04T23:21:18+01:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/categoria/temas/</loc>
-    <lastmod>2023-01-04T23:21:18+01:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/categoria/sintaxe/</loc>
-    <lastmod>2023-01-04T23:21:06+01:00</lastmod>
   </url><url>
     <loc>//localhost:1313/about/</loc>
     <lastmod>2019-02-28T00:00:00+00:00</lastmod>

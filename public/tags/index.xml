@@ -6,34 +6,69 @@
     <description>Recent content in Tags on M.Ozkaya</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 14 Apr 2025 22:47:43 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 15 Apr 2025 23:53:49 +0200</lastBuildDate>
     <atom:link href="//localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Api</title>
-      <link>//localhost:1313/tags/api/</link>
-      <pubDate>Mon, 14 Apr 2025 22:47:43 +0200</pubDate>
-      <guid>//localhost:1313/tags/api/</guid>
-      <description></description>
-    </item>
     <item>
       <title>Go</title>
       <link>//localhost:1313/tags/go/</link>
-      <pubDate>Mon, 14 Apr 2025 22:47:43 +0200</pubDate>
+      <pubDate>Tue, 15 Apr 2025 23:53:49 +0200</pubDate>
       <guid>//localhost:1313/tags/go/</guid>
       <description></description>
     </item>
     <item>
       <title>Htmx</title>
       <link>//localhost:1313/tags/htmx/</link>
-      <pubDate>Mon, 14 Apr 2025 22:47:43 +0200</pubDate>
+      <pubDate>Tue, 15 Apr 2025 23:53:49 +0200</pubDate>
       <guid>//localhost:1313/tags/htmx/</guid>
       <description></description>
     </item>
     <item>
       <title>Linux</title>
       <link>//localhost:1313/tags/linux/</link>
-      <pubDate>Mon, 14 Apr 2025 22:47:43 +0200</pubDate>
+      <pubDate>Tue, 15 Apr 2025 23:53:49 +0200</pubDate>
       <guid>//localhost:1313/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Monitoring</title>
+      <link>//localhost:1313/tags/monitoring/</link>
+      <pubDate>Tue, 15 Apr 2025 23:53:49 +0200</pubDate>
+      <guid>//localhost:1313/tags/monitoring/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Websocket</title>
+      <link>//localhost:1313/tags/websocket/</link>
+      <pubDate>Tue, 15 Apr 2025 23:53:49 +0200</pubDate>
+      <guid>//localhost:1313/tags/websocket/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Api</title>
+      <link>//localhost:1313/tags/api/</link>
+      <pubDate>Tue, 15 Apr 2025 23:36:33 +0200</pubDate>
+      <guid>//localhost:1313/tags/api/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Crypto</title>
+      <link>//localhost:1313/tags/crypto/</link>
+      <pubDate>Tue, 15 Apr 2025 23:36:33 +0200</pubDate>
+      <guid>//localhost:1313/tags/crypto/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Currency</title>
+      <link>//localhost:1313/tags/currency/</link>
+      <pubDate>Tue, 15 Apr 2025 23:36:33 +0200</pubDate>
+      <guid>//localhost:1313/tags/currency/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Weather</title>
+      <link>//localhost:1313/tags/weather/</link>
+      <pubDate>Tue, 15 Apr 2025 23:36:33 +0200</pubDate>
+      <guid>//localhost:1313/tags/weather/</guid>
       <description></description>
     </item>
     <item>

@@ -8,7 +8,7 @@ author = "musti"
 
 ______________________________________________________________________
 
-Highly experienced System Administrator with 15+ years of expertise in designing, deploying, and managing complex server infrastructures from bare metal to top-level applications. Skilled in Linux, Open Source Intelligence, and Video Streaming Services, with a strong proficiency in automation tools like Ansible, Puppet, and Terraform.
+Highly experienced System Administrator with **{{< experience year=2009 >}}+** years of expertise in designing, deploying, and managing complex server infrastructures from bare metal to top-level applications. Skilled in Linux, Open Source Intelligence, and Video Streaming Services, with a strong proficiency in automation tools like Ansible, Puppet, and Terraform.
 
 ## Professional Skills
 
@@ -90,8 +90,8 @@ Managed and supported large-scale Linux/Windows infrastructure, including Linux 
 
 ______________________________________________________________________
 
-- Gazi University, Electrical, Electronics and Communications Engineering, Bachelor's Degree (2.88/4), 2003 - 2008
-- Süleyman Demirel A. High School, Physical Sciences (4.56/5), 1998 - 2002
+- Gazi University, Electrical, Electronics and Communications Engineering, Bachelor's Degree / 2003 - 2008
+- Süleyman Demirel A. High School, Physical Sciences / 1998 - 2002
 
 ## Languages
 
@@ -99,6 +99,10 @@ ______________________________________________________________________
 
 - English
 - Turkish
+
+## Certifications
+
+{{< cert-gallery dir="certificates/" size="200x150" >}}
 
 ## Courses
 

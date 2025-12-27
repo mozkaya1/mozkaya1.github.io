@@ -1,0 +1,150 @@
+{{ $dir := .Get "dir" | default "certificates/" }}
+
+<!-- ALWAYS load Lightbox - no conditions -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+
+<!-- Initialize Lightbox immediately -->
+<script>
+  // Initialize as soon as script loads
+  if (typeof lightbox !== 'undefined') {
+    lightbox.option({
+      'resizeDuration': 200,
+      'wrapAround': true,
+      'showImageNumberLabel': true,
+      'albumLabel': "Image %1 of %2"
+    });
+    console.log('Lightbox initialized successfully');
+  } else {
+    console.error('Lightbox failed to load');
+  }
+</script>
+
+<!-- Gallery CSS -->
+<style>
+  .working-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    margin: 30px 0;
+  }
+
+  .working-item {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid black;
+    transition: all 0.3s ease;
+
+  }
+
+  .working-item:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .working-item a {
+    display: block;
+    text-decoration: none;
+    cursor: pointer !important;
+  }
+
+  /* Force thumbnail size */
+  .working-thumb {
+    width: 100% !important;
+    height: 200px !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  .working-info {
+    padding: 15px;
+  }
+
+  .working-title {
+    font-weight: 600;
+    font-size: 1.7rem;
+    margin: 0 0 5px 0;
+    color: #737;
+  }
+
+  .working-date {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+  }
+
+  /* "NEW" badge for recent certificates (last 60 days) */
+  .new-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #e72;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    z-index: 10;
+  }
+</style>
+
+{{ $path := print "static/" $dir }}
+{{ if fileExists $path }}
+{{ $images := readDir $path }}
+
+{{/* Create a slice to store images with their dates */}}
+{{ $certificates := slice }}
+
+{{ range $images }}
+{{ $ext := path.Ext .Name | lower }}
+{{ if or (eq $ext ".jpg") (eq $ext ".jpeg") (eq $ext ".png") }}
+{{ $name := replaceRE "\\.[^.]+$" "" .Name }}
+{{ $name = replaceRE "[-_]" " " $name }}
+{{ $name = title $name }}
+{{ $date := .ModTime }}
+{{ $displayDate := $date.Format "January 2006" }}
+{{ $sortDate := $date.Format "20060102" }} <!-- For sorting YYYYMMDD -->
+{{ $fullPath := print "/" $dir .Name }}
+
+{{/* Check if certificate is recent (last 60 days) */}}
+{{ $isRecent := false }}
+{{ if gt $date (now.AddDate 0 0 -60) }}
+{{ $isRecent = true }}
+{{ end }}
+
+{{ $certInfo := dict
+"name" $name
+"path" $fullPath
+"date" $date
+"displayDate" $displayDate
+"sortDate" $sortDate
+"isRecent" $isRecent
+}}
+
+{{ $certificates = $certificates | append $certInfo }}
+{{ end }}
+{{ end }}
+
+{{/* SORT: LATEST FIRST (newest to oldest) */}}
+{{ $certificates = sort $certificates "sortDate" "desc" }}
+
+<div class="working-gallery">
+  {{ range $certificates }}
+  <div class="working-item" style="position: relative;">
+    {{ if .isRecent }}
+    <div class="new-badge">NEW</div>
+    {{ end }}
+
+    <!-- CRITICAL: data-lightbox attribute MUST be present -->
+    <a href="{{ .path }}" data-lightbox="working-gallery" data-title="{{ .name }} | {{ .displayDate }}"
+      title="Click to view full size">
+      <img src="{{ .path }}" alt="{{ .name }}" class="working-thumb" loading="lazy">
+    </a>
+    <div class="working-info">
+      <div class="working-title">{{ .name }}</div>
+      <div class="working-date">{{ .displayDate }}</div>
+    </div>
+  </div>
+  {{ end }}
+</div>
+{{ end }}

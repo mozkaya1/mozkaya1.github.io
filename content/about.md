@@ -102,7 +102,7 @@ ______________________________________________________________________
 
 ## Certifications
 
-{{< cert-gallery dir="certificates/" size="200x150" >}}
+{{< cert-orders dir="certificates/" >}}
 
 ## Courses
 

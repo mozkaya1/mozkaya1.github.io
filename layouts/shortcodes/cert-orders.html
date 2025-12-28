@@ -1,0 +1,321 @@
+{{ $dir := .Get "dir" | default "certificates/" }}
+
+<!-- ALWAYS load Lightbox - no conditions -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+
+<script>
+  if (typeof lightbox !== 'undefined') {
+    lightbox.option({
+      'resizeDuration': 200,
+      'wrapAround': true,
+      'showImageNumberLabel': true,
+      'albumLabel': "Certificate %1 of %2"
+    });
+    console.log('Lightbox initialized successfully');
+  } else {
+    console.error('Lightbox failed to load');
+  }
+</script>
+
+<style>
+  .cert-gallery-3col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin: 40px 0;
+  }
+
+  @media (max-width: 1100px) {
+    .cert-gallery-3col {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .cert-gallery-3col {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+  }
+
+  .cert-card {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid black;
+    transition: all 0.3s ease;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cert-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    border-color: #805ad5;
+  }
+
+  .cert-card a {
+    display: block;
+    text-decoration: none;
+    cursor: pointer !important;
+    flex: 0 0 auto;
+  }
+
+  /* Force thumbnail size - 3 columns */
+  .cert-thumb {
+    width: 100% !important;
+    height: 220px !important;
+    object-fit: cover !important;
+    display: block !important;
+    transition: transform 0.5s ease;
+  }
+
+  .cert-card:hover .cert-thumb {
+    transform: scale(1.05);
+  }
+
+  .cert-content {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cert-title {
+    font-weight: 700;
+    font-size: 1.7rem;
+    margin: 0 0 10px 0;
+    color: #805ad5;
+    line-height: 1.4;
+    flex: 1;
+  }
+
+  .cert-date {
+    font-size: 0.95rem;
+    color: #718096;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-top: 12px;
+    border-top: 1px solid #e2e8f0;
+    margin-top: auto;
+  }
+
+  .cert-date .date-icon {
+    color: #805ad5;
+    font-size: 1.1rem;
+  }
+
+  /* "NEW" badge for recent certificates (last 90 days) */
+  .new-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, #e53e3e, #c53030);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(229, 62, 62, 0.3);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.05);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  /* Recent highlight */
+  .recent-highlight {
+    position: relative;
+  }
+
+  .recent-highlight::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #38a169, #68d391);
+    border-radius: 16px 16px 0 0;
+  }
+
+  /* Grid layout helper */
+  .grid-helper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+  }
+
+  .cert-stats {
+    text-align: center;
+    margin: 30px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #f7fafc, #edf2f7);
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+  }
+
+  .stats-highlight {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .stats-count {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #805ad5;
+  }
+
+  .stats-label {
+    font-size: 1rem;
+    color: #4a5568;
+  }
+
+  .latest-info {
+    font-size: 0.9rem;
+    color: #718096;
+    margin-top: 10px;
+  }
+</style>
+
+{{ $path := print "static/" $dir }}
+{{ if fileExists $path }}
+{{ $images := readDir $path }}
+
+{{/* Create a slice to store images with extracted dates from filenames */}}
+{{ $certificates := slice }}
+
+{{ range $images }}
+{{ $ext := path.Ext .Name | lower }}
+{{ if or (eq $ext ".jpg") (eq $ext ".jpeg") (eq $ext ".png") }}
+{{ $fileName := .Name }}
+
+{{/* EXTRACT DATE FROM FILENAME (format: YYYY-MM-DD_cert-name) */}}
+{{ $datePattern := `^(\d{4})-(\d{2})-(\d{2})_` }}
+{{ $dateMatch := findRE $datePattern $fileName }}
+
+{{ if $dateMatch }}
+{{ $dateStr := index $dateMatch 0 }}
+{{ $dateStr = replace $dateStr "_" "" }}
+{{ $certDate := time $dateStr }}
+
+{{/* EXTRACT CERTIFICATE NAME (remove date and time prefix) */}}
+{{ $certName := replaceRE `^\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}_` "" $fileName }}
+{{ $certName = replaceRE `\.(jpg|jpeg|png)$` "" $certName }}
+{{ $certName = replaceRE "[-_]" " " $certName }}
+{{ $certName = title $certName }}
+
+{{ $displayDate := $certDate.Format "January 2, 2006" }}
+{{ $sortDate := $certDate.Format "20060102" }}
+{{ $fullPath := print "/" $dir $fileName }}
+
+{{/* Check if certificate is recent (last 90 days) */}}
+{{ $isRecent := false }}
+{{ if gt $certDate (now.AddDate 0 0 -90) }}
+{{ $isRecent = true }}
+{{ end }}
+
+{{ $certInfo := dict
+"fileName" $fileName
+"certName" $certName
+"path" $fullPath
+"date" $certDate
+"displayDate" $displayDate
+"sortDate" $sortDate
+"year" ($certDate.Format "2006")
+"monthYear" ($certDate.Format "Jan 2006")
+"isRecent" $isRecent
+}}
+
+{{ $certificates = $certificates | append $certInfo }}
+{{ else }}
+{{/* Fallback for files without date prefix */}}
+{{ $certName := replaceRE `\.(jpg|jpeg|png)$` "" $fileName }}
+{{ $certName = replaceRE "[-_]" " " $certName }}
+{{ $certName = title $certName }}
+{{ $date := .ModTime }}
+
+{{ $certInfo := dict
+"fileName" $fileName
+"certName" $certName
+"path" (print "/" $dir $fileName)
+"date" $date
+"displayDate" ($date.Format "January 2006")
+"sortDate" ($date.Format "20060102")
+"year" ($date.Format "2006")
+"monthYear" ($date.Format "Jan 2006")
+"isRecent" false
+}}
+
+{{ $certificates = $certificates | append $certInfo }}
+{{ end }}
+{{ end }}
+{{ end }}
+
+{{/* SORT: LATEST FIRST (newest to oldest) by extracted date */}}
+{{ $certificates = sort $certificates "sortDate" "desc" }}
+
+{{/* Statistics display */}}
+{{ $totalCerts := len $certificates }}
+{{ $recentCerts := 0 }}
+{{ range $certificates }}
+{{ if .isRecent }}
+{{ $recentCerts = add $recentCerts 1 }}
+{{ end }}
+{{ end }}
+
+
+{{/* Display certificates in 3-column grid, latest first */}}
+<div class="cert-gallery-3col">
+  {{ range $certificates }}
+  <div class="cert-card {{ if .isRecent }}recent-highlight{{ end }}">
+    {{ if .isRecent }}
+    <div class="new-badge">NEW</div>
+    {{ end }}
+
+    <a href="{{ .path }}" data-lightbox="certificates-all" data-title="{{ .certName }} | {{ .displayDate }}"
+      title="Click to view full size">
+      <img src="{{ .path }}" alt="{{ .certName }}" class="cert-thumb" loading="lazy">
+    </a>
+    <div class="cert-content">
+      <div class="cert-title">{{ .certName }}</div>
+      <div class="cert-date">
+        <span class="date-icon">📅</span>
+        {{ .displayDate }}
+        {{ if .isRecent }}
+        {{ end }}
+      </div>
+    </div>
+  </div>
+  {{ end }}
+</div>
+
+{{/* Bottom info */}}
+{{ else }}
+<p style="font-size: 1.2rem;">⚠️ No certificates found in <code>{{ $dir }}</code></p>
+<p>Add certificate files with format: <code>YYYY-MM-DD_certificate-name.png</code></p>
+</div>
+{{ end }}

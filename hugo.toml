@@ -15,8 +15,13 @@ pagerSize = 6
 # Enable Disqus comments
 # shortname = "yourdiscussshortname"
 
-[markup.highlight]
-noClasses = false
+[markup]
+  [markup.highlight]
+  noClasses = false
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+    ordered = false
 
 [params]
 author = "Mustafa Ozkaya"

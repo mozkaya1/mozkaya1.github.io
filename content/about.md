@@ -6,7 +6,11 @@ aliases = ["musti", "about", "contact"]
 author = "musti"
 +++
 
+{{< toc >}}
+
 ______________________________________________________________________
+
+## Summary
 
 Highly experienced System Administrator with **{{< experience year=2009 >}}+** years of expertise in designing, deploying, and managing complex server infrastructures from bare metal to top-level applications. Skilled in Linux, Open Source Intelligence, and Video Streaming Services, with a strong proficiency in automation tools like Ansible, Puppet, and Terraform.
 

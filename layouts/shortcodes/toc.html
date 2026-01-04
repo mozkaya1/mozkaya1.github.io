@@ -1,0 +1,231 @@
+{{/* fixed_top_menu.html - With working hover */}}
+{{- $title := default "Sections" (.Get "title") -}}
+
+{{- if .Page.TableOfContents -}}
+{{- $toc := .Page.TableOfContents -}}
+
+<div class="fixed-top-menu">
+  <div class="fixed-menu-scroll">
+    {{ $toc }}
+  </div>
+</div>
+
+<style>
+  .fixed-top-menu {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: slategrey;
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+  }
+
+  .fixed-menu-title {
+    flex-shrink: 0;
+    font-weight: 600;
+    margin-right: 1rem;
+    color: var(--heading);
+    font-size: 0.95rem;
+    padding-right: 1rem;
+    border-right: 1px solid var(--border);
+  }
+
+  .fixed-menu-scroll {
+    flex: 1;
+    overflow-x: auto;
+    padding: 0.25rem 0;
+  }
+
+  /* Force horizontal layout */
+  .fixed-menu-scroll>ul {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 0.5rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+  }
+
+  .fixed-menu-scroll li {
+    margin: 0 !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Hover effect with !important */
+  .fixed-menu-scroll a {
+    display: block !important;
+    padding: 0.5rem 1rem !important;
+    background: var(--code-bg) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 6px !important;
+    color: var(--text) !important;
+    text-decoration: none !important;
+    font-size: 1.3rem !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    transition: all 0.2s ease !important;
+  }
+
+  /* HOVER EFFECT - Make sure this is specific */
+  .fixed-menu-scroll a:hover {
+    background: var(--primary) !important;
+    color: blue !important;
+    border-color: var(--primary) !important;
+    transform: translateY(-4px) !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  /* Alternative hover effect if above doesn't work */
+  .fixed-menu-scroll>ul>li>a:hover {
+    background: var(--primary) !important;
+    color: white !important;
+    border-color: var(--primary) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  /* Hide nested lists */
+  .fixed-menu-scroll ul ul {
+    display: none !important;
+  }
+
+  /* Scrollbar styling */
+  .fixed-menu-scroll::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .fixed-menu-scroll::-webkit-scrollbar-track {
+    background: var(--bg);
+  }
+
+  .fixed-menu-scroll::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 2px;
+  }
+
+  /* Body spacing */
+  body {
+    padding-top: 60px !important;
+  }
+
+  h2 {
+    scroll-margin-top: 70px;
+    padding-top: 70px;
+    margin-top: -50px;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .fixed-top-menu {
+      padding: 0.5rem;
+    }
+
+    .fixed-menu-title {
+      font-size: 0.85rem;
+      margin-right: 0.75rem;
+      padding-right: 0.75rem;
+    }
+
+    .fixed-menu-scroll a {
+      padding: 0.4rem 0.75rem !important;
+      font-size: 0.8rem !important;
+    }
+
+    body {
+      padding-top: 50px !important;
+    }
+
+    h2 {
+      scroll-margin-top: 60px;
+      padding-top: 60px;
+      margin-top: -40px;
+    }
+  }
+</style>
+
+<script>
+  // Clean up the TOC structure
+  document.addEventListener('DOMContentLoaded', function () {
+    const menuScroll = document.querySelector('.fixed-menu-scroll');
+    if (!menuScroll) return;
+
+    // Get the first UL (top-level TOC)
+    const topUl = menuScroll.querySelector('ul');
+    if (!topUl) return;
+
+    // Remove all nested ULs (H3, H4, etc.)
+    const nestedUls = topUl.querySelectorAll('ul');
+    nestedUls.forEach(ul => ul.remove());
+
+    // Ensure all LIs are direct children of the top UL
+    const allLis = topUl.querySelectorAll('li');
+    allLis.forEach(li => {
+      // Remove any nested structure
+      const nestedLis = li.querySelectorAll('li');
+      nestedLis.forEach(nestedLi => nestedLi.remove());
+
+      // Keep only the first link in each LI
+      const links = li.querySelectorAll('a');
+      if (links.length > 1) {
+        for (let i = 1; i < links.length; i++) {
+          links[i].remove();
+        }
+      }
+    });
+
+    // Now apply horizontal layout
+    topUl.style.display = 'flex';
+    topUl.style.flexWrap = 'nowrap';
+    topUl.style.gap = '0.5rem';
+    topUl.style.margin = '0';
+    topUl.style.padding = '0';
+    topUl.style.listStyle = 'none';
+
+    // Style all LIs
+    const lis = topUl.querySelectorAll('li');
+    lis.forEach(li => {
+      li.style.margin = '0';
+      li.style.padding = '0';
+      li.style.flexShrink = '0';
+    });
+
+    // Style all links
+    const links = topUl.querySelectorAll('a');
+    links.forEach(link => {
+      link.style.display = 'block';
+      link.style.padding = '0.5rem 1rem';
+      link.style.background = 'var(--code-bg)';
+      link.style.border = '1px solid var(--border)';
+      link.style.borderRadius = '6px';
+      link.style.color = 'var(--text)';
+      link.style.textDecoration = 'none';
+      link.style.fontSize = '0.85rem';
+      link.style.fontWeight = '500';
+      link.style.whiteSpace = 'nowrap';
+      link.style.transition = 'all 0.2s ease';
+
+      // Add hover with JavaScript as fallback
+      link.addEventListener('mouseenter', function () {
+        this.style.background = 'var(--primary)';
+        this.style.color = 'white';
+        this.style.borderColor = 'var(--primary)';
+        this.style.transform = 'translateY(-1px)';
+        this.style.boxShadow = '0 2px 8px rgba(0,0,0,0.15)';
+      });
+
+      link.addEventListener('mouseleave', function () {
+        this.style.background = 'var(--code-bg)';
+        this.style.color = 'var(--text)';
+        this.style.borderColor = 'var(--border)';
+        this.style.transform = 'translateY(0)';
+        this.style.boxShadow = 'none';
+      });
+    });
+  });
+</script>
+{{- end -}}

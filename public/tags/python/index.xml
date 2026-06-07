@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on M.Ozkaya</title>
+    <link>//localhost:1313/tags/python/</link>
+    <description>Recent content in Python on M.Ozkaya</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 07 Jun 2026 23:52:03 +0200</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bol.com Price Discount Alert</title>
+      <link>//localhost:1313/posts/bol-com/</link>
+      <pubDate>Sun, 07 Jun 2026 23:52:03 +0200</pubDate>
+      <guid>//localhost:1313/posts/bol-com/</guid>
+      <description>&lt;h1 id=&#34;get-price-discount-notification-for-specific-product-on-bolcom&#34;&gt;&#xA;  Get Price Discount Notification for Specific Product on bol.com&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#get-price-discount-notification-for-specific-product-on-bolcom&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;get bol.com link from product page .&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;&lt;img src=&#34;./static/bol.com.png&#34; alt=&#34;bol.com&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;initial-setting-on-shell-code-bolsh&#34;&gt;&#xA;  initial setting on shell code (./bol.sh)&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#initial-setting-on-shell-code-bolsh&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;adjust settings on ./bol.sh&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;url&amp;#34;&lt;/span&gt; link &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; product on bol.com &#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;setPrice&amp;#34;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; threshold price to be notified below  &#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;cooldown&amp;#34;&lt;/span&gt;  check interval &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;seconds&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;./static/initial-setting.png&#34; alt=&#34;initial setting&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;main-go-code-to-get-price-on-bolcom&#34;&gt;&#xA;  main GO code to get price on bol.com&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#main-go-code-to-get-price-on-bolcom&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;help context&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

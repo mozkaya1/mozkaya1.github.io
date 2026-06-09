@@ -1,7 +1,7 @@
 +++ 
 draft = false
 date = 2026-06-09T22:20:33+02:00
-title = ""
+title = "Amazon Price Discount Alert"
 description = "Get Price Discount Notification for Specific Product on Amazon.com/nl/es"
 slug = ""
 authors = []

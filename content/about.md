@@ -112,8 +112,22 @@ ______________________________________________________________________
 
 ______________________________________________________________________
 
+- Overview of Azure AI - 20 Aug 2026
+- Agentic AI for Developers and Architects - 13 Aug 2026
+- Agentic AI on AWS - 17 Jul 2026
+- Agentic AI Foundation and Design Patterns - 10 Jul 2026
+- Introduction to Agentic AI - 19 May 2026
+- Azure Kubernetes - 03 Mar 2026
+- Azure Devops - 03 Mar 2026
+- Full stack GCP Cloud Practitioner - 02 Feb 2026
+- Puppet Fundamentals for System Administration - 08 Jan 2026
+- Go Programming Language: Beyond The Basics - 02 Jan 2026
+- Cert Prep Workshop - AWS Certified Cloud Practitioner - 29 Dec 2025
+- IaC using Terraform - 26 Dec 2025
+- Advanced Python Concepts - 11 Dec 2025
+- Container orchestration using Kubernetes - 10 Dec 2025
+- Kubernetes - Basics - 10 Dec 2025
 - Certified Ethical Hacker, Academy (BGA), 17.02.2014 - 21.02.2014
-- UNIX/LINUX Fundamental, Turk Telekom Academy, 09.12.2013 - 13.12.2013
 - Advanced Programming with Python, Turk Telekom Academy, 05.12.2016 - 9.12.2016
 - Oracle Database Administration 1, Bilginç IT Academy, 03.11.2014 - 07.11.2014
 - Oracle Database Administration 2, Bilginç IT Academy, 01.12.2014 - 05.12.2014
@@ -125,7 +139,6 @@ ______________________________________________________________________
 - Verimatrix - DRM, Verimatrix Technologies, 14.01.2013
 - Conditional Access Systems - DTH, Irdeto Technologies, 25.05.2015 - 29.05.2015
 - IneoQuest - DTH, IneoQuest Technologies, 06.04.2015 - 10.04.2015
-- HST 3000C DSL & IPTV, Turk Telekom Academy, 15.05.2013 - 17.05.2013
 - ITIL Foundation, Turk Telekom Academy, 16.07.2012 - 18.07.2012
 - Interconnecting Cisco Networking Devices Part 1 (ICND1), Turk Telekom Academy, 24.10.2011 - 28.10.2011
 - Interconnecting Cisco Networking Devices Part 2 (ICND2), Turk Telekom Academy, 05.12.2011 - 09.12.2011

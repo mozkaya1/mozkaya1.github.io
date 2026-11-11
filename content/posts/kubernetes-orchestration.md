@@ -128,10 +128,16 @@ helm install weather-api ./helm-charts/go-api-app
 ![Rancher](/rancher.png)
 
 ### Grafana Observability
-![Grafana](/monitoring.png)
+![Grafana](/grafana-dashboards.png)
+![Grafana](/grafana-kubelet.png)
+
+### Prometheus 
+![Prometheus](/prometheus-metric.png)
+![Prometheus](/prometheus-target-service.png)
 
 ### ArgoCD Continuous Deployment
-![ArgoCD](/argocd.png)
+![ArgoCD](/argoCD-pipe.png)
+![ArgoCD](/argCD-elk.png)
 
 ### ELK Stack
 ![ELK1](/elk-kibana.png)
